@@ -295,9 +295,9 @@ def draw_figure(file_name,precision_array,recall_array):
     plt.ylabel('Recall')
 
     # save figure
-    plt.savefig("../result_figure/" + file_name + ".svg", format="svg")
-    plt.savefig("../result_figure/" + file_name + ".png", dpi=600, format="png")
-    plt.savefig("../result_figure/" + file_name + ".jpg", dpi=600, format="jpg")
+    plt.savefig("./result_figure/" + file_name + ".svg", format="svg")
+    plt.savefig("./result_figure/" + file_name + ".png", dpi=600, format="png")
+    plt.savefig("./result_figure/" + file_name + ".jpg", dpi=600, format="jpg")
 
 
 def set_box_color(bp, color):
