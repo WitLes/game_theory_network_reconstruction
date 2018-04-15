@@ -221,9 +221,9 @@ def run():
     # output the figure of precision and recall of the reconstruction algorithm
     file_name_list = generate_file_name_list()
     for i in range(len(file_name_list)):
-        print(str(i) + "/" + str(len(file_name_list)), end=" ")
+        print(str(i) + " of " + str(len(file_name_list)),end=" ",flush=True)
         test(file_name_list[i])
-        print("Done")
+        print("Done",flush=True)
     print("All Done.")
 
 
@@ -239,8 +239,10 @@ def test(file_name):
     precision_array = np.zeros(shape=(REPEAT, len(cas_list)))  # results
     recall_array = np.zeros(shape=(REPEAT, len(cas_list)))  # results
     for i in range(REPEAT):
+        print(".", end="",flush=True)
         for j in range(len(cas_list)):
             # get the strategy and gain data of one sample
+
             evolve_strategy, evolve_gain = get_evolutionary_data(graph=demo_graph, g_array=g_array, cas=cas_list[j],
                                                                  k=0.1)
             #  reconstructed
