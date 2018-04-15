@@ -219,18 +219,20 @@ def generate_file_name_list():
 
 def run():
     # output the figure of precision and recall of the reconstruction algorithm
-
     file_name_list = generate_file_name_list()
-    for file_name in file_name_list:
-        test(file_name)
+    for i in range(len(file_name_list)):
+        print(str(i) + "/" + str(len(file_name_list)), end=" ")
+        test(file_name_list[i])
+        print("Done")
+    print("All Done.")
 
 
 def test(file_name):
     # one result of the given several datasets
 
-    file_name_full = "../data/" + file_name + ".txt"
+    file_name_full = "./data/" + file_name + ".txt"
     demo_graph, node_number, edge_number = open_file_data_graph(file_name_full)  # load graph
-    print(file_name, "node: ", node_number, "edge: ", edge_number)
+    print(file_name,end=" ")
     cas_list = [int(i / 20 * node_number) for i in range(1, 21)]  # data amount list for iteration
     REPEAT = 20  # repeat number of each box-plot point, 20 by default
     g_array = sg_array(r=0.7)
@@ -258,7 +260,7 @@ def test(file_name):
             TN = all_number - TP - FN - FP
             precision = TP / (TP + FP)
             recall = TP / (TP + FN)
-            print("precision: ", precision, "recall: ", recall)
+            #print("precision: ", precision, "recall: ", recall)
             precision_array[i][j] = precision
             recall_array[i][j] = recall
     # draw box-plot figure
